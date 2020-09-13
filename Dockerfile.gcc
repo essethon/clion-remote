@@ -26,7 +26,14 @@ RUN apt-get update \
   cmake \
   rsync \
   tar \
-  python \
+  python
+
+RUN apt-get install -y \
+  libboost-all-dev \
+  libsnappy-dev \
+  libsqlite3-dev \
+  sqlite3 \
+  ninja-build \
   && apt-get clean
 
 RUN ( \
