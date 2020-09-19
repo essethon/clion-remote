@@ -1,0 +1,10 @@
+FROM essethon/clion-remote
+
+RUN apt-get update \
+  && apt-get install -y git
+
+USER user
+RUN bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+
+USER root
+CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
